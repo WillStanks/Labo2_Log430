@@ -43,7 +43,7 @@ jobs:
 
       - name: Démarrer BD
         run: |
-          docker compose --profile db up -d --wait
+          docker compose up -d mysql redis --wait
       
       - name: Exécuter les tests
         working-directory: src
