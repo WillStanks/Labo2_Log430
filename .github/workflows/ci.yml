@@ -47,6 +47,9 @@ jobs:
       
       - name: Exécuter les tests
         working-directory: src
+        env:
+          REDIS_HOST: localhost
+          DB_HOST: localhost
         run: |
           python -m pytest
 
