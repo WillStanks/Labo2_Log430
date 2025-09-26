@@ -39,7 +39,7 @@ def get_template(content, homepage=False):
     """ Inject content into base HTML template for the application """
     breadcrumb_text = """<p>Application de gestion de magasins</p>""" if homepage else """<a href="/">← Retourner à la page d'accueil</a>"""
     return f"""<!DOCTYPE html>
-    <html lang="fr">
+    <html>
         <head>
             <meta charset="UTF-8">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">

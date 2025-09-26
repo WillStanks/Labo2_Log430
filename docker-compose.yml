@@ -4,7 +4,8 @@ services:
     volumes:
       - .:/app
     environment:
-      DB_HOST: mysql        
+      PYTHONPATH: /app/src
+      DB_HOST: mysql
       DB_PORT: 3306
       DB_USER: labo02
       DB_PASSWORD: labo02
@@ -12,10 +13,30 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       REDIS_DB: 0
-
+    ports:
+      - "5000:5000"
     depends_on:
       - mysql
       - redis
+
+  tests:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app/src
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: labo02
+      DB_PASSWORD: labo02
+      DB_NAME: labo02_db
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+    depends_on:
+      - mysql
+      - redis
+    command: python -m pytest
 
   mysql:
     image: mysql:8
